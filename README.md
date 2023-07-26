@@ -27,10 +27,10 @@ This module gives a handy way to develop Slack applications using the Nestjs fra
 
 ```bash
 # yarn
-$ yarn add nestjs-slack-bolt
+$ yarn add nestjs-bolt
 
 # npm
-$ npm i nestjs-slack-bolt
+$ npm i nestjs-bolt
 ```
 
 ## Usage
@@ -113,7 +113,7 @@ Using the SlackService
 ```typescript
 import { Controller } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { SlackService } from 'nestjs-slack-bolt/services/slack.service';
+import { SlackService } from 'nestjs-slack-bolt/dist/services/slack.service';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { from } from 'rxjs';
 
