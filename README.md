@@ -6,6 +6,7 @@
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
 <p align="center">A <a href="http://nestjs.com/" target="blank">Nestjs</a> module to interact with <a href="https://api.slack.com/" target="_blank">Slack</a> API using <a href="https://api.slack.com/bolt">Bolt</a> SDK</p>
+<p align="center">This is a fork of the original <a href="https://github.com/bamada/nest-slack-bolt" target="_blank">nest-slack-bolt</a>. I updated packages and fixed docs. Further development is planned.</p>
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
