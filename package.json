@@ -4,7 +4,7 @@
   "description": "A Nestjs module using Slack Bold SDK",
   "author": "ngajhede",
   "license": "MIT",
-  "url": "https://github.com/ngajhede/nest-bolt",
+  "url": "https://github.com/ngajhede/nestjs-bolt",
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.json",
@@ -81,6 +81,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ngajhede/nest-bolt"
+    "url": "https://github.com/ngajhede/nestjs-bolt"
   }
 }
