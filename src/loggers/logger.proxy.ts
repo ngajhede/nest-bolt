@@ -14,6 +14,10 @@ export class LoggerProxy extends Logger {
     super.localInstance.setLogLevels(levels);
   }
 
+  getLevel(): LogLevel[] {
+    return super.localInstance.getLogLevels();
+  }
+
   setName(name: string) {
     super.context = name;
   }

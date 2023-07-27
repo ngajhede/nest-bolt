@@ -1,9 +1,7 @@
-import { Logger } from '@nestjs/common';
-import { LogLevel } from '@slack/bolt';
+import { Logger, LogLevel } from '@nestjs/common';
 export declare class LoggerProxy extends Logger {
     constructor(name: string);
     info(...msg: any[]): void;
-    setLevel(level: LogLevel): void;
-    getLevel(): LogLevel;
+    setLevel(levels: LogLevel[]): void;
     setName(name: string): void;
 }

@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoggerProxy = void 0;
 const common_1 = require("@nestjs/common");
-const bolt_1 = require("@slack/bolt");
 let LoggerProxy = class LoggerProxy extends common_1.Logger {
     constructor(name) {
         super(name);
@@ -19,17 +18,8 @@ let LoggerProxy = class LoggerProxy extends common_1.Logger {
     info(...msg) {
         this.log(msg);
     }
-    setLevel(level) {
-        super.localInstance.setLogLevels([
-            'log',
-            'error',
-            'debug',
-            'verbose',
-            'warn',
-        ]);
-    }
-    getLevel() {
-        return bolt_1.LogLevel.INFO;
+    setLevel(levels) {
+        super.localInstance.setLogLevels(levels);
     }
     setName(name) {
         super.context = name;
