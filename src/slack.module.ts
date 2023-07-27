@@ -27,7 +27,7 @@ const slackServiceFactory = {
 @Module({
   imports: [ConfigModule.forRoot()],
   providers: [ExplorerService, LoggerProxy, SlackService, slackServiceFactory],
-  exports: [SlackService],
+  exports: [SlackService, LoggerProxy],
 })
 export class SlackModule implements OnApplicationBootstrap {
   constructor(
