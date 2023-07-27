@@ -51,7 +51,7 @@ SlackModule = __decorate([
     (0, common_1.Module)({
         imports: [config_1.ConfigModule.forRoot()],
         providers: [explorer_service_1.ExplorerService, logger_proxy_1.LoggerProxy, slack_service_1.SlackService, slackServiceFactory],
-        exports: [slack_service_1.SlackService],
+        exports: [slack_service_1.SlackService, logger_proxy_1.LoggerProxy],
     }),
     __metadata("design:paramtypes", [slack_service_1.SlackService,
         explorer_service_1.ExplorerService])
