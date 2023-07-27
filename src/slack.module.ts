@@ -2,14 +2,14 @@ import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { ExplorerService } from './services/explorer.service';
 import { SlackService } from './services/slack.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { App, AppOptions } from '@slack/bolt';
+import { App, AppOptions, Logger } from '@slack/bolt';
 import { LoggerProxy } from './loggers/logger.proxy';
 
 const SLACK = 'Slack';
 
 const slackServiceFactory = {
   provide: 'CONNECTION',
-  useFactory: (configService: ConfigService, loggerProxy: LoggerProxy) => {
+  useFactory: (configService: ConfigService, loggerProxy: Logger) => {
     loggerProxy.setName(SLACK);
 
     const options: AppOptions = {
@@ -33,7 +33,7 @@ export class SlackModule implements OnApplicationBootstrap {
   constructor(
     private readonly slackService: SlackService,
     private readonly explorerService: ExplorerService,
-  ) { }
+  ) {}
 
   onApplicationBootstrap() {
     const { messages, actions, commands, events, shortcuts } =

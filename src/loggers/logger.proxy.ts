@@ -1,5 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { LogLevel } from '@slack/bolt';
+import { Injectable, Logger, LogLevel } from '@nestjs/common';
 
 @Injectable()
 export class LoggerProxy extends Logger {
@@ -11,18 +10,12 @@ export class LoggerProxy extends Logger {
     this.log(msg);
   }
 
-  setLevel(level: LogLevel) {
-    super.localInstance.setLogLevels([
-      'log',
-      'error',
-      'debug',
-      'verbose',
-      'warn',
-    ]);
+  setLevel(levels: LogLevel[]) {
+    super.localInstance.setLogLevels(levels);
   }
 
-  getLevel(): LogLevel {
-    return LogLevel.INFO;
+  getLevel(): LogLevel[] {
+    return super.localInstance.getLogLevels();
   }
 
   setName(name: string) {
