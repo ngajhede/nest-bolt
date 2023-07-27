@@ -21,6 +21,9 @@ let LoggerProxy = class LoggerProxy extends common_1.Logger {
     setLevel(levels) {
         super.localInstance.setLogLevels(levels);
     }
+    getLevel() {
+        return super.localInstance.getLogLevels();
+    }
     setName(name) {
         super.context = name;
     }
