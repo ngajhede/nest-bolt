@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var SlackService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SlackService = void 0;
 const common_1 = require("@nestjs/common");
@@ -24,11 +23,10 @@ const COMMAND = 'Command';
 const SHORTCUT = 'Shortcut';
 const ACTION = 'Action';
 const EVENT = 'Event';
-let SlackService = SlackService_1 = class SlackService {
+let SlackService = class SlackService {
     constructor(moduleRef, _app) {
         this.moduleRef = moduleRef;
         this._app = _app;
-        this._logger = new common_1.Logger(SlackService_1.name);
     }
     onModuleInit() {
         this._app.start();
@@ -76,11 +74,10 @@ let SlackService = SlackService_1 = class SlackService {
             .reduce((a, b) => [...a, ...b], []);
         eventHandlers.forEach((event) => {
             callback(event.pattern, event.fn);
-            this._logger.log(`Mapped {'${event.pattern}', ${eventType}} event`);
         });
     }
 };
-SlackService = SlackService_1 = __decorate([
+SlackService = __decorate([
     (0, common_1.Injectable)(),
     __param(1, (0, common_1.Inject)('CONNECTION')),
     __metadata("design:paramtypes", [core_1.ModuleRef,

@@ -5,7 +5,6 @@ import { IMetadataBase } from '../interfaces/metadata/metadata.interface';
 export declare class SlackService implements OnModuleInit {
     private readonly moduleRef;
     private readonly _app;
-    private readonly _logger;
     constructor(moduleRef: ModuleRef, _app: App);
     onModuleInit(): void;
     /**

@@ -1,6 +1,6 @@
 {
   "name": "nestjs-bolt",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A Nestjs module using Slack Bold SDK",
   "author": "ngajhede",
   "license": "MIT",

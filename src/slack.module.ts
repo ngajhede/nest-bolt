@@ -2,18 +2,14 @@ import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { ExplorerService } from './services/explorer.service';
 import { SlackService } from './services/slack.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { App, AppOptions, Logger } from '@slack/bolt';
-import { LoggerProxy } from './loggers/logger.proxy';
+import { App, AppOptions } from '@slack/bolt';
 
 const SLACK = 'Slack';
 
 const slackServiceFactory = {
   provide: 'CONNECTION',
-  useFactory: (configService: ConfigService, loggerProxy: Logger) => {
-    loggerProxy.setName(SLACK);
-
+  useFactory: (configService: ConfigService) => {
     const options: AppOptions = {
-      logger: loggerProxy,
       token: configService.get('SLACK_BOT_TOKEN'),
       signingSecret: configService.get('SLACK_SIGNING_SECRET'),
       socketMode: !!configService.get<boolean>('SLACK_SOCKET_MODE'),
@@ -21,13 +17,13 @@ const slackServiceFactory = {
     };
     return new App(options);
   },
-  inject: [ConfigService, LoggerProxy],
+  inject: [ConfigService],
 };
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  providers: [ExplorerService, LoggerProxy, SlackService, slackServiceFactory],
-  exports: [SlackService, LoggerProxy],
+  providers: [ExplorerService, SlackService, slackServiceFactory],
+  exports: [SlackService],
 })
 export class SlackModule implements OnApplicationBootstrap {
   constructor(

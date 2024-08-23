@@ -1,4 +1,4 @@
-import { Inject, Injectable, Logger, OnModuleInit, Type } from '@nestjs/common';
+import { Inject, Injectable, OnModuleInit, Type } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { App } from '@slack/bolt';
 import {
@@ -19,13 +19,11 @@ const EVENT = 'Event';
 
 @Injectable()
 export class SlackService implements OnModuleInit {
-  private readonly _logger = new Logger(SlackService.name);
-
   constructor(
     private readonly moduleRef: ModuleRef,
     @Inject('CONNECTION')
     private readonly _app: App,
-  ) { }
+  ) {}
 
   onModuleInit() {
     this._app.start();
@@ -113,7 +111,6 @@ export class SlackService implements OnModuleInit {
 
     eventHandlers.forEach((event: { pattern: K; fn: () => Promise<void> }) => {
       callback(event.pattern, event.fn);
-      this._logger.log(`Mapped {'${event.pattern}', ${eventType}} event`);
     });
   }
 }
